@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "react-hot-toast";
 
 
 export interface CounterState {
@@ -18,7 +19,13 @@ export const counterSlice = createSlice ({
             state.value +=1
         },
         decrement:(state)=>{
+            toast.dismiss();
+            if((state.value-1) < 0){
+                toast.error('You are going negative.')
+            } 
             state.value -=1
+            
+            
         },
         incrementByAmount: (state, action:PayloadAction<number>)=>{
             state.value += action.payload

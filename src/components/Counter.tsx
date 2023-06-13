@@ -19,13 +19,13 @@ const CounterView = () => {
     }
 
     return (
-        <>
+        <div className="flex flex-row gap-8 justify-center mt-10">
                 <Button onClick={decrement} variant={"destructive"}>Decreement</Button>
 
           <span className="text-lg leading-10 font-semibold">{counterValue}</span>  
                   <Button onClick={increament} variant={"secondary"}>Increement</Button>
 
-        </>
+        </div>
     )
 }
 export default CounterView
